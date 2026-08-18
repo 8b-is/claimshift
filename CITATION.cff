@@ -1,0 +1,49 @@
+cff-version: 1.2.0
+message: "If you use this software or research artifact, please cite it as below."
+type: software
+title: "Claimshift: A Manifest Protocol for Verification Inheritance"
+authors:
+  - family-names: Flyxion
+    affiliation: Independent Researcher
+repository-code: "https://github.com/8b-is/claimshift"
+url: "https://github.com/8b-is/claimshift"
+abstract: >
+  Claimshift is a formal verification inheritance framework for scholarly
+  artifacts under transformation. It addresses the fundamental question: when
+  a verified claim is transformed, can the original verification be inherited
+  by the successor? The project implements a three-paper series demonstrating
+  that verification inheritance is undecidable in general but decidable within
+  bounded rewrite fragments, and provides a manifest protocol for representing
+  verification across transformations with proper role separation (assertion,
+  verification, transformation attestation).
+keywords:
+  - formal verification
+  - verification inheritance
+  - mutation testing
+  - Lean theorem prover
+  - scholarly provenance
+  - transformation attestation
+  - claim graphs
+  - proof assistant
+license: MIT
+version: 1.0.0
+date-released: "2026-08-18"
+references:
+  - type: article
+    title: "Verification Inheritance Under Transformation"
+    authors:
+      - family-names: Flyxion
+    year: 2026
+    notes: "Paper I: Theory and undecidability results"
+  - type: article
+    title: "A Manifest Protocol for Verification Inheritance"
+    authors:
+      - family-names: Flyxion
+    year: 2026
+    notes: "Paper II: Locators, claim graphs, and policy-qualified trust"
+  - type: article
+    title: "Mutation Testing for Verification Inheritance"
+    authors:
+      - family-names: Flyxion
+    year: 2026
+    notes: "Paper III: Experimental validation with 20-mutant matrix"

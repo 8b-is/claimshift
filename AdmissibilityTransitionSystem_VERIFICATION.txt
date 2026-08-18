@@ -1,0 +1,46 @@
+Admissibility Transition System — Verification Log
+====================================================
+
+Toolchain: Lean (version 4.10.0, x86_64-unknown-linux-gnu, commit
+c375e19f6b65, Release), fetched directly from the leanprover/lean4
+v4.10.0 GitHub release and kernel-checked with no Mathlib dependency
+and no lakefile (plain `lean AdmissibilityTransitionSystem.lean`).
+
+Result: exit code 0. Zero errors. Zero `sorry`. Two harmless
+"unused variable `hk`" linter warnings only (a helper hypothesis
+introduced but not referenced by name in two branches of the
+BindStep case of step_preserves_adm; does not affect correctness).
+
+Axiom footprint (#print axioms), per theorem:
+
+  step_preserves_adm                    [propext, Quot.sound]
+  reach_preserves_adm                   [propext, Quot.sound]
+  global_admissibility (T1)             [propext, Quot.sound]
+  local_step_preserves_other_fibers     (no axioms)
+  local_step_changes_own_fiber          [propext]
+  fiber_invariant_under_avoidance (T2)  (no axioms)
+
+propext and Quot.sound are Lean 4's two standard core axioms
+(propositional extensionality and quotient soundness); neither is
+Classical.choice and neither is sorryAx. No hidden sorry anywhere
+in the dependency chain of any headline theorem.
+
+Declared dependency graph, as designed:
+
+  D1 (applyLocal, bindEffect), D2 (Step) -> L1 (step_preserves_adm)
+    -> L2 (reach_preserves_adm) -> T1 (global_admissibility)
+
+  D2 (Step), D3 (piProj) -> L3 (local_step_preserves_other_fibers)
+    -> T2 (fiber_invariant_under_avoidance)
+
+  local_step_changes_own_fiber is the non-vacuity witness for L3,
+  proved independently (constructive existential, not downstream of
+  L1-L3).
+
+This log was produced by actually invoking the Lean 4 kernel in this
+session, not asserted from inspection. Per this project's own
+discipline, "reprovability is not verification inheritance": this
+log establishes that this specific file, as written, kernel-checks
+under Lean 4.10.0 today. It does not by itself establish anything
+about a future edited version of the file; any mutation applied
+during Paper III's experiment requires its own independent check.

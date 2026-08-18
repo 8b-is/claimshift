@@ -1,0 +1,79 @@
+[
+  {
+    "id": "M01",
+    "note": "alpha-rename bound var j -> k in LocalStep",
+    "O_m_compiles_with_original_proof": true,
+    "lean_exit_code": 0,
+    "stdout_tail": "mutant_M01.lean:145:18: warning: unused variable `hk`\nnote: this linter can be disabled with `set_option linter.unusedVariables false`\nmutant_M01.lean:146:18: warning: unused variable `hk`\nnote: this linter can be disabled with `set_option linter.unusedVariables false`\n"
+  },
+  {
+    "id": "M09",
+    "note": "constant mutation: Pop's target held -> bound (D1-only, should break L1/L2/T1, leave L3/T2 untouched)",
+    "O_m_compiles_with_original_proof": false,
+    "lean_exit_code": 1,
+    "stdout_tail": "mutant_M09.lean:115:64: error: unsolved goals\ncase pop.empty.bound\n\u22a2 False\nmutant_M09.lean:145:18: warning: unused variable `hk`\nnote: this linter can be disabled with `set_option linter.unusedVariables false`\nmutant_M09.lean:146:18: warning: unused variable `hk`\nnote: this linter can be disabled with `set_option linter.unusedVariables false`\nmutant_M09.lean:200:4: error: unsolved goals\ncase refine_1.left\n\u22a2 False\n"
+  },
+  {
+    "id": "M10",
+    "note": "constant mutation: Adm even -> odd parity",
+    "O_m_compiles_with_original_proof": true,
+    "lean_exit_code": 0,
+    "stdout_tail": "mutant_M10.lean:145:18: warning: unused variable `hk`\nnote: this linter can be disabled with `set_option linter.unusedVariables false`\nmutant_M10.lean:146:18: warning: unused variable `hk`\nnote: this linter can be disabled with `set_option linter.unusedVariables false`\n"
+  },
+  {
+    "id": "M11",
+    "note": "relation-operator mutation: flip = to != in LocalStep frame clause (D2, should affect both branches)",
+    "O_m_compiles_with_original_proof": false,
+    "lean_exit_code": 1,
+    "stdout_tail": "mutant_M11.lean:126:4: error: unsolved goals\ncase inl.intro.intro.intro.h.intro.l0\nx y : X\nh : Adm x\np : Prim\nhloc : applyLocal p (x Loc.l0) (y Loc.l0)\nhframe : \u2200 (j : Loc), \u00acj = Loc.l0 \u2192 \u00acy j = x j\nhxg : \u00acx Loc.l0 = Cell.bound\nhyg : \u00acy Loc.l0 = Cell.bound\n\u22a2 ((if x Loc.l1 = Cell.bound then 1 else 0) + if x Loc.l2 = Cell.bound then 1 else 0) =\n    (if y Loc.l1 = Cell.bound then 1 else 0) + if y Loc.l2 = Cell.bound then 1 else 0\n\ncase inl.intro.intro.intro.h.intro.l1\nx y : X\nh : Adm x\np : Prim\nhloc : applyLocal p (x Loc.l1) (y Loc.l1)\nhframe : \u2200 (j : Loc), \u00acj = Loc.l1 \u2192 \u00acy j = x j\nhxg : \u00acx Loc.l1 = Cell.bound\nhyg : \u00acy Loc.l1 = Cell.bound\n\u22a2 ((if x Loc.l0 = Cell.bound then 1 else 0) + if x Loc.l2 = Cell.bound then 1 else 0) =\n    (if y Loc.l0 = Cell.bound then 1 else 0) + if y Loc.l2 = Cell.bound then 1 else 0\n\ncase inl.intro.intro.intro.h.intro.l2\nx y : X\nh : Adm x\np : Prim\nhloc : applyLocal p (x Loc.l2) (y Loc.l2)\nhframe : \u2200 (j : Loc), \u00acj = Loc.l2 \u2192 \u00acy j = x j\nhxg : \u00acx Loc.l2 = Cell.bound\nhyg : \u00acy Loc.l2 = Cell.bound\n\u22a2 ((if x Loc.l0 = Cell.bound then 1 else 0) + if x Loc.l1 = Cell.bound then 1 else 0) =\n    (if y Loc.l0 = Cell.bound then 1 else 0) + if y Loc.l1 = Cell.bound then 1 else 0\nmutant_M11.lean:188:2: error: type mismatch\n  Ne.symm (hframe f hf)\nhas type\n  x f \u2260 y f : Prop\nbut is expected to have type\n  piProj f x = piProj f y : Prop\nmutant_M11.lean:201:4: error: unsolved goals\ncase refine_1.right.l1\n\u22a2 False\n\ncase refine_1.right.l2\n\u22a2 False\n"
+  },
+  {
+    "id": "M12",
+    "note": "relation-operator mutation: Refuse's case duplicates Pop's transition",
+    "O_m_compiles_with_original_proof": true,
+    "lean_exit_code": 0,
+    "stdout_tail": "mutant_M12.lean:145:18: warning: unused variable `hk`\nnote: this linter can be disabled with `set_option linter.unusedVariables false`\nmutant_M12.lean:146:18: warning: unused variable `hk`\nnote: this linter can be disabled with `set_option linter.unusedVariables false`\n"
+  },
+  {
+    "id": "M13",
+    "note": "quantifier mutation: forall -> exists in LocalStep frame clause",
+    "O_m_compiles_with_original_proof": false,
+    "lean_exit_code": 1,
+    "stdout_tail": "mutant_M13.lean:126:4: error: unsolved goals\ncase inl.intro.intro.intro.h.intro.l0\nx y : X\nh : Adm x\np : Prim\nhloc : applyLocal p (x Loc.l0) (y Loc.l0)\nhframe : \u2203 j, \u00acj = Loc.l0 \u2192 y j = x j\nhxg : \u00acx Loc.l0 = Cell.bound\nhyg : \u00acy Loc.l0 = Cell.bound\n\u22a2 ((if x Loc.l1 = Cell.bound then 1 else 0) + if x Loc.l2 = Cell.bound then 1 else 0) =\n    (if y Loc.l1 = Cell.bound then 1 else 0) + if y Loc.l2 = Cell.bound then 1 else 0\n\ncase inl.intro.intro.intro.h.intro.l1\nx y : X\nh : Adm x\np : Prim\nhloc : applyLocal p (x Loc.l1) (y Loc.l1)\nhframe : \u2203 j, \u00acj = Loc.l1 \u2192 y j = x j\nhxg : \u00acx Loc.l1 = Cell.bound\nhyg : \u00acy Loc.l1 = Cell.bound\n\u22a2 ((if x Loc.l0 = Cell.bound then 1 else 0) + if x Loc.l2 = Cell.bound then 1 else 0) =\n    (if y Loc.l0 = Cell.bound then 1 else 0) + if y Loc.l2 = Cell.bound then 1 else 0\n\ncase inl.intro.intro.intro.h.intro.l2\nx y : X\nh : Adm x\np : Prim\nhloc : applyLocal p (x Loc.l2) (y Loc.l2)\nhframe : \u2203 j, \u00acj = Loc.l2 \u2192 y j = x j\nhxg : \u00acx Loc.l2 = Cell.bound\nhyg : \u00acy Loc.l2 = Cell.bound\n\u22a2 ((if x Loc.l0 = Cell.bound then 1 else 0) + if x Loc.l1 = Cell.bound then 1 else 0) =\n    (if y Loc.l0 = Cell.bound then 1 else 0) + if y Loc.l1 = Cell.bound then 1 else 0\nmutant_M13.lean:188:9: error: function expected at\n  hframe\nterm has type\n  \u2203 j, j \u2260 g \u2192 y j = x j\nmutant_M13.lean:201:6: error: tactic 'introN' failed, insufficient number of binders\ncase refine_1.right\n\u22a2 \u2203 j, j \u2260 Loc.l0 \u2192 (fun j => if j = Loc.l0 then Cell.held else Cell.empty) j = (fun x => Cell.empty) j\n"
+  },
+  {
+    "id": "M15",
+    "note": "hypothesis deletion: remove f != g from L3 (should be refuted by existing witness)",
+    "O_m_compiles_with_original_proof": false,
+    "lean_exit_code": 1,
+    "stdout_tail": "mutant_M15.lean:145:18: warning: unused variable `hk`\nnote: this linter can be disabled with `set_option linter.unusedVariables false`\nmutant_M15.lean:146:18: warning: unused variable `hk`\nnote: this linter can be disabled with `set_option linter.unusedVariables false`\nmutant_M15.lean:188:18: error: unknown identifier 'hf'\nmutant_M15.lean:223:66: error: application type mismatch\n  local_step_preserves_other_fibers ?m.26962 ?m.26963 ?m.26964 ?m.26965 ?m.26966 (Ne.symm hne)\nargument\n  Ne.symm hne\nhas type\n  f \u2260 g\u271d : Prop\nbut is expected to have type\n  LocalStep ?m.26962 ?m.26963 ?m.26964 ?m.26965 : Prop\n"
+  },
+  {
+    "id": "M16",
+    "note": "hypothesis strengthening: add unused x != y to step_preserves_adm",
+    "O_m_compiles_with_original_proof": false,
+    "lean_exit_code": 1,
+    "stdout_tail": "mutant_M16.lean:145:18: warning: unused variable `hk`\nnote: this linter can be disabled with `set_option linter.unusedVariables false`\nmutant_M16.lean:146:18: warning: unused variable `hk`\nnote: this linter can be disabled with `set_option linter.unusedVariables false`\nmutant_M16.lean:165:29: error: type mismatch\n  step_preserves_adm y\u271d z\u271d ih hstep\nhas type\n  y\u271d \u2260 z\u271d \u2192 Adm z\u271d : Prop\nbut is expected to have type\n  Adm z\u271d : Prop\n"
+  },
+  {
+    "id": "M17",
+    "note": "hypothesis weakening: Adm x -> boundCount x <= 3 (looks safe, should be refuted)",
+    "O_m_compiles_with_original_proof": false,
+    "lean_exit_code": 1,
+    "stdout_tail": "mutant_M17.lean:150:16: error: type mismatch\n  h\nhas type\n  boundCount x \u2264 3 : Prop\nbut is expected to have type\n  boundCount x % 2 = 0 : Prop\nmutant_M17.lean:151:14: error: omega could not prove the goal:\na possible counterexample may satisfy the constraints\n  1 \u2264 a \u2264 2\nwhere\n a := \u2191(boundCount x + 2) / 2\nmutant_M17.lean:165:58: error: application type mismatch\n  step_preserves_adm ?m.29821 z\u271d ih\nargument\n  ih\nhas type\n  Adm y\u271d : Prop\nbut is expected to have type\n  boundCount ?m.29821 \u2264 3 : Prop\n"
+  },
+  {
+    "id": "M18",
+    "note": "conclusion mutation: Adm y -> Adm y \\/ True (should still need adjustment, tests vacuity)",
+    "O_m_compiles_with_original_proof": false,
+    "lean_exit_code": 1,
+    "stdout_tail": "mutant_M18.lean:145:18: warning: unused variable `hk`\nnote: this linter can be disabled with `set_option linter.unusedVariables false`\nmutant_M18.lean:146:18: warning: unused variable `hk`\nnote: this linter can be disabled with `set_option linter.unusedVariables false`\nmutant_M18.lean:173:2: error: type mismatch\n  reach_preserves_adm x y h hr\nhas type\n  Adm y : Prop\nbut is expected to have type\n  Adm y \u2228 True : Prop\n"
+  },
+  {
+    "id": "M20",
+    "note": "definition mutation: flip Step y z -> Step z y in Reach.tail",
+    "O_m_compiles_with_original_proof": false,
+    "lean_exit_code": 1,
+    "stdout_tail": "mutant_M20.lean:145:18: warning: unused variable `hk`\nnote: this linter can be disabled with `set_option linter.unusedVariables false`\nmutant_M20.lean:146:18: warning: unused variable `hk`\nnote: this linter can be disabled with `set_option linter.unusedVariables false`\nmutant_M20.lean:165:61: error: application type mismatch\n  step_preserves_adm y\u271d z\u271d ih hstep\nargument\n  hstep\nhas type\n  Step z\u271d y\u271d : Prop\nbut is expected to have type\n  Step y\u271d z\u271d : Prop\n"
+  }
+]

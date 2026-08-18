@@ -1,0 +1,87 @@
+{"theorems":
+ [{"verified": false,
+   "semantic": [],
+   "proof_term": [],
+   "note":
+   "axiom footprint contains sorryAx; dependency data below is UNTRUSTED and provided for inspection only",
+   "name": "AdmissibilityTransitionSystem.step_preserves_adm",
+   "interface": []},
+  {"verified": false,
+   "semantic": [],
+   "proof_term": [],
+   "note":
+   "axiom footprint contains sorryAx; dependency data below is UNTRUSTED and provided for inspection only",
+   "name": "AdmissibilityTransitionSystem.reach_preserves_adm",
+   "interface": []},
+  {"verified": false,
+   "semantic": [],
+   "proof_term": [],
+   "note":
+   "axiom footprint contains sorryAx; dependency data below is UNTRUSTED and provided for inspection only",
+   "name": "AdmissibilityTransitionSystem.global_admissibility",
+   "interface": []},
+  {"verified": true,
+   "semantic":
+   ["AdmissibilityTransitionSystem.Cell",
+    "AdmissibilityTransitionSystem.Loc",
+    "AdmissibilityTransitionSystem.LocalStep",
+    "AdmissibilityTransitionSystem.Prim",
+    "AdmissibilityTransitionSystem.X",
+    "AdmissibilityTransitionSystem.piProj"],
+   "proof_term":
+   ["AdmissibilityTransitionSystem.Cell",
+    "AdmissibilityTransitionSystem.Loc",
+    "AdmissibilityTransitionSystem.LocalStep",
+    "AdmissibilityTransitionSystem.Prim",
+    "AdmissibilityTransitionSystem.X",
+    "AdmissibilityTransitionSystem.applyLocal",
+    "AdmissibilityTransitionSystem.piProj",
+    "And.casesOn",
+    "Eq",
+    "Eq.symm",
+    "Ne"],
+   "name": "AdmissibilityTransitionSystem.local_step_preserves_other_fibers",
+   "interface": []},
+  {"verified": false,
+   "semantic": [],
+   "proof_term": [],
+   "note":
+   "axiom footprint contains sorryAx; dependency data below is UNTRUSTED and provided for inspection only",
+   "name": "AdmissibilityTransitionSystem.local_step_changes_own_fiber",
+   "interface": []},
+  {"verified": true,
+   "semantic":
+   ["AdmissibilityTransitionSystem.Cell",
+    "AdmissibilityTransitionSystem.Loc",
+    "AdmissibilityTransitionSystem.ReachAvoiding",
+    "AdmissibilityTransitionSystem.X",
+    "AdmissibilityTransitionSystem.piProj"],
+   "proof_term":
+   ["AdmissibilityTransitionSystem.Cell",
+    "AdmissibilityTransitionSystem.Loc",
+    "AdmissibilityTransitionSystem.LocalStep",
+    "AdmissibilityTransitionSystem.Prim",
+    "AdmissibilityTransitionSystem.ReachAvoiding",
+    "AdmissibilityTransitionSystem.ReachAvoiding.rec",
+    "AdmissibilityTransitionSystem.X",
+    "AdmissibilityTransitionSystem.piProj",
+    "Eq",
+    "Eq.refl",
+    "Eq.trans",
+    "Ne",
+    "Ne.symm"],
+   "name": "AdmissibilityTransitionSystem.fiber_invariant_under_avoidance",
+   "interface":
+   ["AdmissibilityTransitionSystem.local_step_preserves_other_fibers"]}],
+ "schema_version": "3.0-typed-edges-sorry-checked",
+ "edge_roles": ["semantic", "interface", "proof_term"]}
+mutant_M09_safe_audit.lean:118:64: error: unsolved goals
+case pop.empty.bound
+⊢ False
+mutant_M09_safe_audit.lean:148:18: warning: unused variable `hk`
+note: this linter can be disabled with `set_option linter.unusedVariables false`
+mutant_M09_safe_audit.lean:149:18: warning: unused variable `hk`
+note: this linter can be disabled with `set_option linter.unusedVariables false`
+mutant_M09_safe_audit.lean:203:4: error: unsolved goals
+case refine_1.left
+⊢ False

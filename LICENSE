@@ -1,0 +1,52 @@
+MIT License
+
+Copyright (c) 2026 Flyxion and Contributors
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+---
+
+ACADEMIC USE NOTICE
+
+This repository contains research artifacts for academic study. If you use
+this work in academic research, please cite:
+
+    Flyxion. "Claimshift: A Manifest Protocol for Verification Inheritance."
+    GitHub repository, 2026. https://github.com/8b-is/claimshift
+
+Research papers and formal verification artifacts in this repository are
+licensed under MIT for implementation purposes, but proper academic citation
+is expected for scholarly use.
+
+---
+
+RESEARCH ARTIFACT DISCLAIMER
+
+The formal verification artifacts (*.lean files) are provided as frozen
+mathematical specimens for research purposes. They represent a specific
+experimental configuration for mutation testing and should not be interpreted
+as production verification tools or general-purpose libraries.
+
+The verification claims herein are relative to:
+- Lean 4.10.0 kernel (commit c375e19f6b65)
+- No external dependencies beyond Lean core
+- Specific axiom assumptions (propext, Quot.sound)
+
+Users should independently verify any claims before relying on them for
+critical applications.
