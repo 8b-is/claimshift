@@ -1,0 +1,73 @@
+Central Theorem (Epistemic Overlap) — Verification Log
+=======================================================
+
+Toolchain: Lean (version 4.10.0, arm64-apple-darwin23.5.0, commit
+c375e19f6b65, Release), fetched directly from the leanprover/lean4
+v4.10.0 GitHub release and kernel-checked with no Mathlib dependency
+and no lakefile (plain `lean CentralTheorem.lean`).
+
+Result: exit code 0. Zero errors. Zero `sorry`.
+
+Axiom footprint (#print axioms), per theorem:
+
+  epistemic_overlap_forward (CT-000, forward)   [Classical.choice]
+  epistemic_overlap_backward (CT-000, backward) (no axioms)
+  epistemic_overlap_iff     (CT-000, iff)       [Classical.choice]
+  no_safe_action            (CT-000+)           (no axioms)
+  ct015_prefix_projection   (CT-015)            (no axioms)
+  no_safe_action_witness_example (non-vacuity)  [propext]
+  common_action_witness_example (non-vacuity)   (no axioms)
+
+Classical.choice is confined to the forward direction (and the iff,
+which inherits it from the forward direction): it selects one common
+admissible action per observation class. In the operational regime
+(finite worlds, finite action vocabulary) that selection is a
+decidable finite search, and the engine implements it constructively
+(crates/admissibility::guaranteeing_policy in 8b-is-engine). The
+backward direction, the No-Safe-Action corollary, and the
+minimal-history projection are fully constructive and carry no
+axioms at all.
+
+propext appears in exactly one non-vacuity witness
+(no_safe_action_witness_example), through the simp/iff machinery that
+unfolds the definitional `if`-based admissibility predicate on Bool
+worlds. propext is one of Lean 4's two standard core axioms
+(propositional extensionality); it is neither Classical.choice nor
+sorryAx. The specimen's headline theorems likewise record propext in
+their footprints, so this is within the established discipline. No
+theorem in this file depends on sorryAx; no hidden sorry anywhere in
+the dependency chain of any headline theorem.
+
+Declared dependency graph, as designed:
+
+  epistemic_overlap_forward, epistemic_overlap_backward
+    -> epistemic_overlap_iff
+
+  no_safe_action (CT-000+) is a direct constructive refutation
+    of a guaranteeing policy from a blurred, admissibility-relevant
+    observation class; it is not downstream of the iff.
+
+  ct015_prefix_projection (CT-015) is an independent factorization
+    lemma (guarantee preserved through any admissibility-factorizing
+    projection of worlds to their minimal decision-relevant prefix).
+
+  The two witness examples are independent constructive existentials
+    (non-vacuity of the overlap/no-safe-action dichotomy), not
+    downstream of the headline theorems.
+
+Axiom policy (restated from the file header): the entropic side
+(Pillar III, the RSVP No-Go for Safe Virality and its
+renormalization form) is deliberately NOT formalized in this file;
+field analysis is out of Lean-core scope and stays proven in the
+monograph (central-theorem/theorem.tex in standardgalactic/alphabet,
+branch central-theorem).
+
+This log was produced by actually invoking the Lean 4 kernel in this
+session, not asserted from inspection. Per this project's own
+discipline, "reprovability is not verification inheritance": this
+log establishes that this specific file, as written, kernel-checks
+under Lean 4.10.0 today. It does not by itself establish anything
+about a future edited version of the file; any mutation applied
+later requires its own independent check. The frozen mathematical
+specimen (AdmissibilityTransitionSystem.lean and its Paper III
+mutation-audit archive) is untouched by this file and by this log.
