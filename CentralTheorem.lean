@@ -10,7 +10,7 @@
   skeleton of the engine's zone-keeper admissibility kernel.
 
   Source: standardgalactic/alphabet, central-theorem/ (SPEC.md +
-  theorem.tex, branch central-theorem).
+  theorem.tex, branch central-theorem, PR #13).
 
   MANIFEST: CT-000 (both directions, and the iff), CT-000+
             (No-Safe-Action), CT-015 (minimal-history premise)
